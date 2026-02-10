@@ -3,61 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <title>Be My Valentine</title>
+
 <style>
 body {
-  background: #ffd6e7; /* خلفية وردية */
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   text-align: center;
-  padding-top: 80px;
 }
 
-img {
-  width: 250px;
-  border-radius: 20px;
+h1 {
+  color: #d6336c;
+  margin-bottom: 10px;
 }
 
-h2 {
-  margin: 20px 0;
-  color: #d91e54;
+p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  position: relative;
+  height: 60px;
 }
 
 button {
-  padding: 15px 30px;
+  padding: 15px 35px;
   font-size: 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 #yes {
-  background: #4CAF50;
+  background: #51cf66;
   color: white;
 }
 
 #no {
-  background: #e74c3c;
+  background: #ff6b6b;
   color: white;
   position: absolute;
+  left: 160px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- الصورة -->
-<img src="https://i.imgur.com/0f6KdWl.png" alt="Cute heart">
+<div class="card">
+  <h1>Be My Valentine 💖</h1>
+  <p>Would you make my heart the happiest today?</p>
 
-<h2>Will you be my Valentine? 💖</h2>
-
-<button id="yes" onclick="alert('Yaaay 💘💘')">OF COURSE</button>
-<button id="no">NO</button>
+  <div class="buttons">
+    <button id="yes" onclick="alert('Yaaay 💘💘 I knew it!')">
+      YES
+    </button>
+    <button id="no">
+      NO
+    </button>
+  </div>
+</div>
 
 <script>
 const noBtn = document.getElementById("no");
 
 noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
+  const parent = noBtn.parentElement;
+  const maxX = parent.clientWidth - noBtn.offsetWidth;
+  const maxY = parent.clientHeight - noBtn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 });

@@ -1,139 +1,37 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️ Be My Valentine? ❤️</title>
-    <style>
-        body {
-            background-color: #ffe0f0; /* خلفية وردية فاتحة */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            overflow: hidden; /* لمنع ظهور شريط التمرير عند هروب الزر */
-            color: #d81b60; /* لون نص عام */
-            text-align: center;
-        }
-
-        .container {
-            background-color: white;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            max-width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        h2 {
-            font-size: 2.2em;
-            margin: 15px 0;
-            color: #ec407a;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 25px;
-            margin-top: 20px;
-            position: relative; /* لتمكين زر NO من الهروب بالنسبة لهذه المنطقة */
-            min-height: 70px; /* لتجنب مشاكل التصميم عند حركة زر NO */
-        }
-
-        button {
-            padding: 15px 30px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 50px; /* أزرار دائرية أكثر */
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #yesBtn {
-            background-color: #66bb6a; /* أخضر فاتح */
-            color: white;
-            transform: scale(1.05); /* لجذب الانتباه */
-        }
-
-        #yesBtn:hover {
-            background-color: #43a047;
-            transform: scale(1.1);
-        }
-
-        #noBtn {
-            background-color: #ef5350; /* أحمر فاتح */
-            color: white;
-            position: absolute; /* ضروري لجعل الزر يهرب */
-            left: 0; /* موقع مبدئي */
-            top: 0; /* موقع مبدئي */
-            white-space: nowrap; /* لمنع الكلمة من الانقسام */
-        }
-
-        #noBtn:hover {
-            background-color: #e53935;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Be My Valentine</title>
+<style>
+body {
+  background: pink;
+  font-family: Arial;
+  text-align: center;
+  padding-top: 100px;
+}
+h1 {
+  color: red;
+  font-size: 50px;
+}
+p {
+  font-size: 22px;
+}
+button {
+  padding: 15px 30px;
+  font-size: 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://i.ibb.co/L5rK5Q5/cute-heart.png" alt="Cute Heart">
-
-        <h2>هل ستكون/ين رفيقي/رفيقتي في عيد الحب؟ 💖</h2>
-
-        <div class="buttons">
-            <button id="yesBtn" onclick="alert('يا للروعة! أنا أحبك أيضاً! 💘')">بالتأكيد</button>
-            <button id="noBtn">لا</button>
-        </div>
-    </div>
-
-    <script>
-        const noBtn = document.getElementById("noBtn");
-        const container = document.querySelector('.buttons'); // منطقة حركة زر لا
-
-        noBtn.addEventListener("mouseover", () => {
-            const containerRect = container.getBoundingClientRect();
-
-            // حساب مساحة آمنة للزر داخل الـ container
-            const maxX = containerRect.width - noBtn.offsetWidth;
-            const maxY = containerRect.height - noBtn.offsetHeight;
-
-            // توليد إحداثيات عشوائية داخل الـ container
-            const newX = Math.random() * maxX;
-            const newY = Math.random() * maxY;
-
-            noBtn.style.left = newX + "px";
-            noBtn.style.top = newY + "px";
-        });
-
-        // لجعل الزر يعمل على شاشات اللمس أيضاً
-        noBtn.addEventListener("touchstart", (e) => {
-            e.preventDefault(); // لمنع السلوك الافتراضي للمس
-            const containerRect = container.getBoundingClientRect();
-            const maxX = containerRect.width - noBtn.offsetWidth;
-            const maxY = containerRect.height - noBtn.offsetHeight;
-            const newX = Math.random() * maxX;
-            const newY = Math.random() * maxY;
-
-            noBtn.style.left = newX + "px";
-            noBtn.style.top = newY + "px";
-        });
-    </script>
+<h1>Be My Valentine ❤️</h1>
+<p>You make my heart smile every day.</p>
+<button>Yes 💘</button>
 
 </body>
 </html>

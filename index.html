@@ -3,49 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Be My Valentine</title>
+
 <style>
 body {
-  background: #ffd6e7;
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   text-align: center;
-  padding-top: 80px;
 }
 
-svg {
-  width: 220px;
-  margin-bottom: 20px;
+h1 {
+  color: #d6336c;
+  margin-bottom: 10px;
 }
 
-h2 {
-  margin: 20px 0;
-  color: #d91e54;
+p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  position: relative;
+  height: 60px;
 }
 
 button {
-  padding: 15px 30px;
+  padding: 15px 35px;
   font-size: 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
 #yes {
-  background: #4CAF50;
+  background: #51cf66;
   color: white;
 }
 
 #no {
-  background: #e74c3c;
+  background: #ff6b6b;
   color: white;
   position: absolute;
-}
-</style>
-</head>
-
-<body>
-
-<!-- قلب SVG مدمج (يظهر حتمًا) -->
-<svg viewBox="0 0 32 29.6">
-  <path fill="#e63950"
-    d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.1C14.8,2.1,11.8,0,8.4,0
-    C3.8,

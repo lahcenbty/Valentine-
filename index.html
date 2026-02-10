@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Be My Valentine</title>
 <style>
 body {
-  background: #ffd6e7; /* خلفية وردية */
+  background: #ffd6e7;
   font-family: Arial, sans-serif;
   text-align: center;
-  padding-top: 50px;
-  overflow: hidden; /* لمنع ظهور شريط التمرير عند هروب الزر */
+  padding-top: 80px;
 }
 
 img {
-  width: 280px;
-  max-width: 90%;
+  width: 220px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 h2 {
   margin: 20px 0;
   color: #d91e54;
-  font-size: 24px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
 }
 
 button {
-  padding: 15px 25px;
+  padding: 15px 30px;
   font-size: 18px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
 #yes {
@@ -49,39 +37,23 @@ button {
 #no {
   background: #e74c3c;
   color: white;
-  position: absolute; /* ضروري لجعل الزر يهرب */
+  position: absolute;
 }
 </style>
 </head>
 
 <body>
 
-<img src="IMG_20260210_152744.jpg" alt="Valentine Image">
+<!-- صورة لطيفة مضمونة -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Love_Heart_SVG.svg/512px-Love_Heart_SVG.svg.png" alt="Cute Heart">
 
 <h2>Will you be my Valentine? 💖</h2>
 
-<div class="container">
-    <button id="yes" onclick="alert('Yaaay! I love you! 💘💘')">OF COURSE</button>
-    <button id="no">NO</button>
-</div>
+<button id="yes" onclick="alert('Yaaay 💘💘')">OF COURSE</button>
+<button id="no">NO</button>
 
 <script>
 const noBtn = document.getElementById("no");
 
-// دالة لجعل الزر يهرب عند اقتراب الفأرة أو اللمس
-const moveButton = () => {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-};
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault(); // لمنع الضغط بالخطأ على الموبايل
-    moveButton();
-});
-</script>
-
-</body>
-</html>
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random()

@@ -3,85 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <title>Be My Valentine</title>
-
 <style>
 body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ffb3c6, #ffd6e0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-.card {
-  background: white;
-  padding: 45px 55px;
-  border-radius: 30px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+  background: #ffd6e7; /* خلفية وردية */
+  font-family: Arial, sans-serif;
   text-align: center;
+  padding-top: 60px;
+  margin: 0;
 }
 
-h1 {
-  color: #d6336c;
-  margin-bottom: 30px;
+img {
+  width: 230px; /* حجم الصورة */
+  border-radius: 25px; /* حواف ناعمة */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* ظل للصورة */
+  margin-bottom: 25px;
 }
 
-.buttons {
-  position: relative;
-  width: 320px;
-  height: 80px;
-  margin: auto;
+h2 {
+  margin: 20px 0;
+  color: #d91e54;
+  font-size: 28px;
 }
 
 button {
-  padding: 15px 38px;
+  padding: 15px 35px;
   font-size: 18px;
   border: none;
-  border-radius: 35px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 #yes {
-  background: #51cf66;
+  background: #4CAF50;
   color: white;
-  position: absolute;
-  left: 0;
+  margin-right: 20px; /* مسافة بين الأزرار */
 }
 
 #no {
-  background: #ff6b6b;
+  background: #e74c3c;
   color: white;
-  position: absolute;
-  right: 0;
+  position: relative;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>Will you be my Valentine? 💖</h1>
+<!-- الصورة -->
+<img src="love.png" alt="Cute heart">
 
-  <div class="buttons">
-    <button id="yes" onclick="alert('Yaaay 💘 I knew it!')">YES</button>
-    <button id="no">NO</button>
-  </div>
-</div>
+<h2>Will you be my Valentine? 💖</h2>
+
+<!-- الأزرار -->
+<button id="yes" onclick="alert('Yaaay 💘💘')">OF COURSE</button>
+<button id="no">NO</button>
 
 <script>
 const noBtn = document.getElementById("no");
-const box = document.querySelector(".buttons");
 
 noBtn.addEventListener("mouseover", () => {
-  const maxX = box.clientWidth - noBtn.offsetWidth;
-  const maxY = box.clientHeight - noBtn.offsetHeight;
-
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 50);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 50);
+  noBtn.style.position = 'absolute';
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 });

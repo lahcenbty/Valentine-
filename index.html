@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>Be My Valentine</title>
@@ -8,25 +8,37 @@ body {
   background: #ffd6e7; /* خلفية وردية */
   font-family: Arial, sans-serif;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 50px;
+  overflow: hidden; /* لمنع ظهور شريط التمرير عند هروب الزر */
 }
 
 img {
-  width: 250px;
+  width: 280px;
+  max-width: 90%;
   border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 h2 {
   margin: 20px 0;
   color: #d91e54;
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 button {
-  padding: 15px 30px;
+  padding: 15px 25px;
   font-size: 18px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 #yes {
@@ -37,29 +49,37 @@ button {
 #no {
   background: #e74c3c;
   color: white;
-  position: absolute;
+  position: absolute; /* ضروري لجعل الزر يهرب */
 }
 </style>
 </head>
 
 <body>
 
-<!-- الصورة -->
-<img src="https://i.imgur.com/0f6KdWl.png" alt="Cute heart">
+<img src="IMG_20260210_152744.jpg" alt="Valentine Image">
 
 <h2>Will you be my Valentine? 💖</h2>
 
-<button id="yes" onclick="alert('Yaaay 💘💘')">OF COURSE</button>
-<button id="no">NO</button>
+<div class="container">
+    <button id="yes" onclick="alert('Yaaay! I love you! 💘💘')">OF COURSE</button>
+    <button id="no">NO</button>
+</div>
 
 <script>
 const noBtn = document.getElementById("no");
 
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
+// دالة لجعل الزر يهرب عند اقتراب الفأرة أو اللمس
+const moveButton = () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+};
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // لمنع الضغط بالخطأ على الموبايل
+    moveButton();
 });
 </script>
 
